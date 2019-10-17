@@ -33,6 +33,21 @@ def scrape_airport_taf(icao_code):
 
     return taf
 
+def create_tds_request(station_list, data_source='tafs', hours_before_now=4):
+    
+    BASE_URL = 'https://www.aviationweather.gov/adds/dataserver_current/httpparam'
+    
+    REQUEST_TYPE = '&requestType=retrieve&format=xml'
+    
+    source = '?dataSource=' + data_source
+    
+    station_string = '&stationString=' + ' '.join(station_list)
+    
+    time_constraint = '&hoursBeforeNow=' + str(hours_before_now)
+
+    request_url = BASE_URL + source + REQUEST_TYPE + station_string + time_constraint
+    
+    return request_url
 
 def get_airport_url(icao_code):
     """

@@ -78,21 +78,3 @@ def get_taf_dataframe(stations):
 
     return df
 
-
-station_list = ['KJFK', 'KLGA', 'KEWR', 'KBOS', 'KMCO', 'KFLL', 'KLGB', 'TJSJ', 'SEGU', 'KBTV']
-
-df = get_taf_dataframe(station_list)
-
-import matplotlib.pyplot as plt
-import datetime as dt
-plt.rcParams['figure.figsize'] = [9, 5]
-plt.figure()
-for i, row in df.iterrows():
-    print(i)
-    plt.plot_date([row['start_time'], row['end_time']], [i, i], '-')
-
-plt.xticks(rotation=90)
-now_date = dt.datetime.utcnow()
-plt.plot_date([now_date, now_date], [0, 30], 'k-')
-
-

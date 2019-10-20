@@ -36,7 +36,8 @@ def get_forecast_dict(forecast):
             fcst_dict[attribute] = None
 
     # Pull values from Number data types
-    for attribute in ['wind_speed', 'wind_direction', 'visibility', 'wind_gust']:
+    for attribute in ['wind_speed', 'wind_direction', 'wind_gust',
+                      'visibility', 'altimeter']:
         if fcst_dict[attribute] is not None:
             fcst_dict[attribute] = fcst_dict[attribute].value
         else:

@@ -57,7 +57,7 @@ def get_taf_dict(taf):
     return taf_dict
 
 
-def get_taf_dataframe(stations):
+def get_taf_dataframe(station_list):
     stations_tafs = {}
 
     # Request TAF for all stations in station list

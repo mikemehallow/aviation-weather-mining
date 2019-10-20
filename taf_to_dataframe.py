@@ -47,6 +47,10 @@ def get_forecast_dict(forecast):
 
 def get_taf_dict(taf):
     taf_dict = {}
+    
+    # Handle case where there is no TAF
+    if taf.data is None:
+        return taf_dict
 
     # Create dictionary of all forecasts within this taf
     for i in range(len(taf.data.forecast)):

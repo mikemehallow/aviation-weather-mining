@@ -38,7 +38,7 @@ def get_forecast_dict(forecast):
     # Pull values from Number data types
     for attribute in ['wind_speed', 'wind_direction', 'wind_gust',
                       'visibility', 'altimeter']:
-        if fcst_dict[attribute] is not None:
+        if fcst_dict[attribute] is not None and fcst_dict[attribute] != '':
             fcst_dict[attribute] = fcst_dict[attribute].value
         else:
             fcst_dict[attribute] = None
@@ -48,7 +48,7 @@ def get_forecast_dict(forecast):
 
 def get_taf_dict(taf):
     taf_dict = {}
-    
+
     # Handle case where there is no TAF
     if taf.data is None:
         return taf_dict
